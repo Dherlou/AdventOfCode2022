@@ -15,7 +15,7 @@
     <?php
 		# main
 		$dataFile = "data.json";
-		if (get_next_update_time($dataFile) <= time()) {
+		if (file_exists($dataFile) === false || get_next_update_time($dataFile) <= time()) {
 			download_data($dataFile);
 		}
         $aoc_data = load_data($dataFile);
